@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background: grey;
+  height: 100vh;
+}
+
+.player {
+  width: 50vw;
+  height: 70vh;
+  border: 1px black solid;
+}
