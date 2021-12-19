@@ -1,5 +1,5 @@
 import React from "react";
-
+import Player from "./Player";
 import "./style.css";
 
 const initialState = {
@@ -146,7 +146,6 @@ class App extends React.Component {
       );
     }
   };
-  giphy = () => {};
 
   componentDidUpdate = () => {
     this.selectedPlayer();
@@ -166,34 +165,25 @@ class App extends React.Component {
               className="giphy-embed"
               allowFullScreen
             ></iframe>
-            <h2>You got 6 by 6</h2>
+            <h2>You got double 6</h2>
             <h3>You lost all your current score and your turn</h3>
           </div>
         )}
         <div className="container-player">
-          <div className={`player ${this.state.selectedPlayer1}`}>
-            <div className="player-item" style={{ color: this.state.color1 }}>
-              {this.state.player1}
-            </div>
-
-            <div className="player-item">
-              Current Score is: {this.state.player1CurrentScore}
-            </div>
-            <div className="player-item total">
-              Total Score is: {this.state.player1GlobalScore}
-            </div>
-          </div>
-          <div className={`player ${this.state.selectedPlayer2}`}>
-            <div className="player-item" style={{ color: this.state.color2 }}>
-              {this.state.player2}
-            </div>
-            <div className="player-item">
-              Current Score is: {this.state.player2CurrentScore}
-            </div>
-            <div className="player-item total">
-              Total Score is: {this.state.player2GlobalScore}
-            </div>
-          </div>
+          <Player
+            selectedPlayer={this.state.selectedPlayer1}
+            color={this.state.color1}
+            player={this.state.player1}
+            playerCurrentScore={this.state.player1CurrentScore}
+            playerGlobalScore={this.state.player1GlobalScore}
+          />
+          <Player
+            selectedPlayer={this.state.selectedPlayer2}
+            color={this.state.color2}
+            player={this.state.player2}
+            playerCurrentScore={this.state.player2CurrentScore}
+            playerGlobalScore={this.state.player2GlobalScore}
+          />
         </div>
         <div className="logic-container">
           <div className="roll-dice-hold-container">
