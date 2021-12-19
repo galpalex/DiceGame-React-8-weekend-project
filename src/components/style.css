@@ -6,10 +6,84 @@
 body {
   background: grey;
   height: 100vh;
+  font-family: "Twinkle Star", sans-serif;
 }
 
 .player {
-  width: 50vw;
+  width: 49vw;
   height: 70vh;
   border: 1px black solid;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  background: #fffdf6;
+}
+.player-item {
+  padding: 30px;
+  font-size: 25px;
+}
+.total {
+  background: brown;
+  border: 1px black solid;
+  width: 45vw;
+  text-align: center;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  color: white;
+}
+
+.container-player {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.logic-container {
+  width: 99vw;
+  height: 26vh;
+  border: 1px black solid;
+  margin: 5px;
+  background: #fffdf6;
+  text-align: center;
+}
+button {
+  padding: 10px 20px;
+  margin: 5px;
+  border-radius: 10px;
+  border: 1px black solid;
+  font-size: 20px;
+  background: transparent;
+  font-family: "Twinkle Star", sans-serif;
+}
+i:hover,
+button:hover {
+  background: #fff8dc;
+  border: 1px brown solid;
+  font-weight: bold;
+  color: brown;
+}
+
+img {
+  width: 50px;
+  height: 50px;
+  border: 1px black solid;
+  margin: 5px;
+}
+.selected {
+  background: #fff8dc;
+}
+.new-game-container,
+.roll-dice-hold-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input {
+  width: 70px;
+  font-size: 20px;
+}
+label {
+  padding: 5px;
+  font-size: 20px;
 }
