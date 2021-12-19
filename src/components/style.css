@@ -8,6 +8,16 @@ body {
   height: 100vh;
   font-family: "Twinkle Star", sans-serif;
 }
+.six-by-six {
+  height: 530px;
+  width: 480px;
+  background: grey;
+  position: absolute;
+  top: 10px;
+  left: 530px;
+  text-align: center;
+  color: white;
+}
 
 .player {
   width: 49vw;
@@ -49,7 +59,7 @@ body {
 }
 button {
   padding: 10px 20px;
-  margin: 5px;
+  margin: 10px;
   border-radius: 10px;
   border: 1px black solid;
   font-size: 20px;
@@ -59,16 +69,18 @@ button {
 i:hover,
 button:hover {
   background: #fff8dc;
-  border: 1px brown solid;
   font-weight: bold;
   color: brown;
+}
+button:hover {
+  border: 1px brown solid;
 }
 
 img {
   width: 50px;
   height: 50px;
   border: 1px black solid;
-  margin: 5px;
+  margin: 10px;
 }
 .selected {
   background: #fff8dc;

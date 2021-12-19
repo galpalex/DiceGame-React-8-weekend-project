@@ -1,4 +1,5 @@
 import React from "react";
+
 import "./style.css";
 
 const initialState = {
@@ -18,6 +19,7 @@ const initialState = {
   color1: "black",
   color2: "black",
   isDisabled: false,
+  isTextVisible: false,
 };
 
 class App extends React.Component {
@@ -73,10 +75,18 @@ class App extends React.Component {
   toCurrentScore = () => {
     if (!this.state.playerTurn) {
       if (this.state.dice1 === 6 && this.state.dice2 === 6) {
-        this.setState({
-          player1CurrentScore: 0,
-          playerTurn: 1,
-        });
+        this.setState(
+          {
+            player1CurrentScore: 0,
+            playerTurn: 1,
+            isTextVisible: true,
+          },
+          () => {
+            setTimeout(() => {
+              this.setState({ isTextVisible: false });
+            }, 3000);
+          }
+        );
       } else {
         this.setState({
           player1CurrentScore:
@@ -87,10 +97,18 @@ class App extends React.Component {
       }
     } else {
       if (this.state.dice1 === 6 && this.state.dice2 === 6) {
-        this.setState({
-          player2CurrentScore: 0,
-          playerTurn: 0,
-        });
+        this.setState(
+          {
+            player2CurrentScore: 0,
+            playerTurn: 0,
+            isTextVisible: true,
+          },
+          () => {
+            setTimeout(() => {
+              this.setState({ isTextVisible: false });
+            }, 3000);
+          }
+        );
       } else {
         this.setState({
           player2CurrentScore:
@@ -128,6 +146,7 @@ class App extends React.Component {
       );
     }
   };
+  giphy = () => {};
 
   componentDidUpdate = () => {
     this.selectedPlayer();
@@ -136,6 +155,21 @@ class App extends React.Component {
   render() {
     return (
       <div>
+        {this.state.isTextVisible && (
+          <div className="six-by-six">
+            <iframe
+              title="This is a unique title"
+              src="https://giphy.com/embed/TfS8MAR9ucLHW"
+              width="480"
+              height="445"
+              frameBorder="0"
+              className="giphy-embed"
+              allowFullScreen
+            ></iframe>
+            <h2>You got 6 by 6</h2>
+            <h3>You lost all your current score and your turn</h3>
+          </div>
+        )}
         <div className="container-player">
           <div className={`player ${this.state.selectedPlayer1}`}>
             <div className="player-item" style={{ color: this.state.color1 }}>
@@ -169,7 +203,7 @@ class App extends React.Component {
               }}
               disabled={this.state.isDisabled}
             >
-              <i class="fas fa-dice fa-lg"></i>
+              <i className="fas fa-dice fa-lg"></i>
               Roll Dice
             </button>
             <div className="dice">
@@ -182,7 +216,7 @@ class App extends React.Component {
               }}
               disabled={this.state.isDisabled}
             >
-              <i class="fas fa-hand-holding fa-lg"></i> Hold
+              <i className="fas fa-hand-holding fa-lg"></i> Hold
             </button>
           </div>
           <div className="new-game-container">
@@ -191,7 +225,7 @@ class App extends React.Component {
                 this.handleReset();
               }}
             >
-              <i class="fas fa-plus-circle fa-lg"></i>
+              <i className="fas fa-plus-circle fa-lg"></i>
               New Game
             </button>
             <label>Adjust Winning Score: </label>
